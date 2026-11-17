@@ -1,0 +1,78 @@
+---
+import { getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Picture from '../components/Picture.astro';
+
+const page = (await getEntry('about', 'about'))!.data;
+---
+<Base title={page.title} description={page.description}>
+  <section class="section">
+    <div class="container story">
+      <div>
+        <h1>{page.heading}</h1>
+        <p class="lede">{page.intro}</p>
+        {page.story.map((p) => <p>{p}</p>)}
+      </div>
+      <Picture image={page.image} ratio="4 / 5" />
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <h2>{page.teamHeading}</h2>
+      <div class="grid">
+        {page.team.map((person) => (
+          <article class="card">
+            <Picture image={person.image} ratio="1 / 1" />
+            <h3 class="person__name">{person.name}</h3>
+            <p class="person__role">{person.role}</p>
+            <p>{person.bio}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>{page.suppliersHeading}</h2>
+      <p class="lede">{page.suppliersIntro}</p>
+      <ul class="suppliers">
+        {page.suppliers.map((s) => (
+          <li>
+            <strong>{s.name}</strong>
+            <span>{s.what}</span>
+            <span class="suppliers__where">{s.where}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .story {
+    display: grid;
+    gap: var(--space-12);
+    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
+  .person__name { margin: var(--space-4) 0 0; font-size: var(--text-xl); }
+  .person__role { color: var(--color-primary); font-weight: var(--weight-medium); }
+  .suppliers {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-6) 0 0;
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  }
+  .suppliers li {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--radius-md);
+    border: 2px solid var(--color-surface);
+  }
+  .suppliers__where { font-size: var(--text-sm); color: var(--color-text-muted); }
+</style>

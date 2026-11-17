@@ -1,16 +1,70 @@
 ---
----
+import { getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Picture from '../components/Picture.astro';
+import OpeningHours from '../components/OpeningHours.astro';
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+const page = (await getEntry('home', 'home'))!.data;
+const site = (await getEntry('site', 'site'))!.data;
+---
+<Base title={page.title} description={page.description}>
+  <section class="hero">
+    <div class="container hero__inner">
+      <div>
+        <h1>{page.hero.heading}</h1>
+        <p class="lede">{page.hero.text}</p>
+        <div class="hero__ctas">
+          <a class="button" href={page.hero.primaryCta.href}>{page.hero.primaryCta.label}</a>
+          {page.hero.secondaryCta && (
+            <a class="button button--ghost" href={page.hero.secondaryCta.href}>{page.hero.secondaryCta.label}</a>
+          )}
+        </div>
+      </div>
+      <Picture image={page.hero.image} ratio="5 / 4" />
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container grid">
+      {page.highlights.map((h) => (
+        <div class="card">
+          <h2 class="highlight__title">{h.title}</h2>
+          <p>{h.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container visit">
+      <div>
+        <h2>{page.hoursHeading}</h2>
+        <OpeningHours />
+      </div>
+      <div>
+        <h2>{page.findUs.heading}</h2>
+        <p>{page.findUs.text}</p>
+        <address class="visit__address">{site.address.join(', ')}</address>
+        <Picture image={{ alt: page.findUs.mapAlt }} ratio="16 / 9" class="visit__map" />
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: var(--space-8) 0 var(--space-16); }
+  .hero__inner {
+    display: grid;
+    gap: var(--space-12);
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
+  .hero__ctas { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-top: var(--space-8); }
+  .highlight__title { font-size: var(--text-xl); }
+  .visit {
+    display: grid;
+    gap: var(--space-12);
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  }
+  .visit__address { font-style: normal; margin-bottom: var(--space-6); color: var(--color-text-muted); }
+</style>

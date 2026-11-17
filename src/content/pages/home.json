@@ -1,0 +1,31 @@
+{
+  "title": "Harbour & Hearth | Cafe and bakery on the quay",
+  "description": "Fresh bread, good coffee, by the water. An independent cafe and bakery at Saltmarsh Quay, Essex.",
+  "hero": {
+    "heading": "Fresh bread, good coffee, by the water",
+    "text": "We bake every morning in an old net loft on the quay. Pull up a chair, watch the boats and have a second slice. Nobody's counting.",
+    "image": { "alt": "Loaves of sourdough cooling on a wooden rack by a window overlooking the harbour" },
+    "primaryCta": { "label": "See the menu", "href": "/menu" },
+    "secondaryCta": { "label": "Find us", "href": "/contact" }
+  },
+  "highlights": [
+    {
+      "title": "Baked here, daily",
+      "text": "Sourdough, buns and cakes from our own ovens. When they're gone, they're gone."
+    },
+    {
+      "title": "Coffee worth the walk",
+      "text": "Roasted down the coast by Tidewater Roasters. Made properly, every time."
+    },
+    {
+      "title": "Dogs and muddy boots welcome",
+      "text": "Coming off the sea wall path? Come in as you are. There's water for the dog."
+    }
+  ],
+  "hoursHeading": "Opening hours",
+  "findUs": {
+    "heading": "Find us on the quay",
+    "text": "We're the blue-doored loft at the end of Quay Street, next to the slipway. Free parking by the sailing club.",
+    "mapAlt": "Map showing Harbour & Hearth at the end of Quay Street, by the slipway"
+  }
+}

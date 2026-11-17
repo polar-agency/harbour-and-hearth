@@ -1,0 +1,96 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { formatPrice } from '../lib/format';
+
+const page = (await getEntry('menuPage', 'menu'))!.data;
+const sections = (await getCollection('menu')).sort((a, b) => a.data.order - b.data.order);
+const tagLabels = { v: 'Vegetarian', vg: 'Vegan', gf: 'Gluten-free' } as const;
+---
+<Base title={page.title} description={page.description}>
+  <section class="section menu-intro">
+    <div class="container">
+      <h1>{page.heading}</h1>
+      <p class="lede">{page.intro}</p>
+      <nav class="menu-jump" aria-label="Menu sections">
+        {sections.map((s) => <a href={`#${s.id}`}>{s.data.title}</a>)}
+      </nav>
+    </div>
+  </section>
+
+  <div class="container">
+    {sections.map((section) => (
+      <section class="menu-section" id={section.id}>
+        <h2>{section.data.title}</h2>
+        {section.data.note && <p class="menu-section__note">{section.data.note}</p>}
+        <ul class="menu-list">
+          {section.data.items.map((item) => (
+            <li class="menu-item">
+              <div class="menu-item__head">
+                <h3 class="menu-item__name">{item.name}</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">{formatPrice(item.price)}</span>
+              </div>
+              <p class="menu-item__desc">
+                {item.description}
+                {item.tags?.map((t) => (
+                  <abbr class="tag" title={tagLabels[t]}>{t.toUpperCase()}</abbr>
+                ))}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    <aside class="allergens" id="allergens" aria-label="Allergen information">
+      <p>{page.allergensNote}</p>
+      <p class="allergens__key">V vegetarian · VG vegan · GF gluten-free</p>
+    </aside>
+  </div>
+</Base>
+
+<style>
+  .menu-intro { padding-bottom: var(--space-8); }
+  .menu-jump { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-6); }
+  .menu-jump a {
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-pill);
+    background: var(--color-surface);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  .menu-section { padding: var(--space-12) 0; border-top: var(--border-width) solid var(--color-border); }
+  .menu-section__note { color: var(--color-text-muted); }
+  .menu-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-6) 0 0;
+    display: grid;
+    gap: var(--space-6) var(--space-12);
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
+  .menu-item__head { display: flex; align-items: baseline; gap: var(--space-2); }
+  .menu-item__name { margin: 0; font-size: var(--text-lg); }
+  .menu-item__dots { flex: 1; border-bottom: 2px dotted var(--color-brown-soft); }
+  .menu-item__price { font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: var(--text-lg); }
+  .menu-item__desc { margin: var(--space-1) 0 0; color: var(--color-text-muted); }
+  .tag {
+    display: inline-block;
+    margin-left: var(--space-2);
+    padding: 0 var(--space-2);
+    border-radius: var(--radius-sm);
+    background: var(--color-accent);
+    color: var(--color-cream);
+    font-size: var(--text-sm);
+    text-decoration: none;
+  }
+  .allergens {
+    margin: var(--space-8) 0 0;
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    border-left: 6px solid var(--color-primary);
+  }
+  .allergens__key { margin: 0; font-size: var(--text-sm); color: var(--color-text-muted); }
+</style>

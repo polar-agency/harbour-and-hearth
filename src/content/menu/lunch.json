@@ -1,0 +1,11 @@
+{
+  "title": "Lunch",
+  "order": 2,
+  "note": "From 11.30am, until it runs out.",
+  "items": [
+    { "name": "Soup of the day", "description": "Always vegan, with a hunk of sourdough.", "price": 7.0, "tags": ["vg"] },
+    { "name": "Crab sandwich", "description": "Fresh crab, lemon mayo and rocket on brown bread.", "price": 12.5 },
+    { "name": "Cheese and pickle toastie", "description": "Mature cheddar and our tomato chutney, pressed till golden.", "price": 8.0, "tags": ["v"] },
+    { "name": "Harbour salad", "description": "Roast squash, lentils, sage leaves and a mustard dressing.", "price": 9.5, "tags": ["vg", "gf"] }
+  ]
+}

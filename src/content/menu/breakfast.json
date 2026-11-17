@@ -1,0 +1,11 @@
+{
+  "title": "Breakfast",
+  "order": 1,
+  "note": "Served until 11.30am.",
+  "items": [
+    { "name": "Sourdough toast", "description": "Two thick slices with salted butter and our own jam.", "price": 4.5, "tags": ["v"] },
+    { "name": "Quayside eggs", "description": "Two eggs your way on sourdough, with roast tomatoes.", "price": 8.5, "tags": ["v"] },
+    { "name": "Smoked haddock and egg", "description": "Local smoked haddock, poached egg, greens and toast.", "price": 11.0 },
+    { "name": "Bircher pot", "description": "Oats soaked overnight with apple, yoghurt and toasted seeds.", "price": 5.75, "tags": ["v"] }
+  ]
+}

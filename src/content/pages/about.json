@@ -1,0 +1,26 @@
+{
+  "title": "About | Harbour & Hearth",
+  "description": "The story of Harbour & Hearth: a cafe and bakery in an old net loft on Saltmarsh Quay.",
+  "heading": "Our story",
+  "intro": "A small cafe in an old net loft, run by three people who really like bread.",
+  "image": { "alt": "The outside of the old net loft, with its blue door and a bench facing the water" },
+  "story": [
+    "For a hundred years, the loft at the end of Quay Street was where fishermen mended their nets. By 2018 it was full of old rope and seagulls.",
+    "Mia had been baking for other people for ten years and wanted an oven of her own. She saw the loft, saw the view, and signed the lease the same week.",
+    "We opened in spring 2019 with one oven, four tables and a lot of sourdough. We still have the oven. We've got a few more tables now."
+  ],
+  "teamHeading": "The team",
+  "team": [
+    { "name": "Mia", "role": "Owner and head baker", "bio": "Up at 4am so you don't have to be. Makes the sourdough and too many cardamom buns.", "image": { "alt": "Mia dusting flour over a loaf" } },
+    { "name": "Sam", "role": "Head barista", "bio": "Knows how you take your coffee before you do. Runs the counter and the playlist.", "image": { "alt": "Sam pouring milk into a flat white" } },
+    { "name": "Jo", "role": "Kitchen and lunches", "bio": "In charge of soups, salads and the crab sandwich. Grows half the herbs we use.", "image": { "alt": "Jo chopping herbs in the kitchen" } }
+  ],
+  "suppliersHeading": "Our suppliers",
+  "suppliersIntro": "We buy from people we know, as close to the quay as we can.",
+  "suppliers": [
+    { "name": "Tidewater Roasters", "what": "Coffee", "where": "Down the coast" },
+    { "name": "Saltmarsh Dairy", "what": "Milk, butter and cream", "where": "Two miles inland" },
+    { "name": "Furrow & Field", "what": "Veg and salad", "where": "Just outside the village" },
+    { "name": "The Quay Boat", "what": "Crab and smoked fish", "where": "Moored out front" }
+  ]
+}

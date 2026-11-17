@@ -1,0 +1,15 @@
+{
+  "title": "Contact | Harbour & Hearth",
+  "description": "Find Harbour & Hearth on Saltmarsh Quay. Opening hours, address and how to get in touch.",
+  "heading": "Say hello",
+  "intro": "Questions, cake orders or just checking we're open? Drop us a line or give us a ring.",
+  "hoursHeading": "Opening hours",
+  "form": {
+    "heading": "Send us a message",
+    "nameLabel": "Your name",
+    "emailLabel": "Your email",
+    "messageLabel": "Your message",
+    "submitLabel": "Send message",
+    "successMessage": "Thanks! We've got your message and we'll get back to you soon."
+  }
+}

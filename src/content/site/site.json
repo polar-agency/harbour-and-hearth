@@ -1,0 +1,20 @@
+{
+  "name": "Harbour & Hearth",
+  "description": "Independent cafe and bakery on the quay at Saltmarsh Quay, Essex. Fresh bread, good coffee, by the water.",
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "Menu", "href": "/menu" },
+    { "label": "About", "href": "/about" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "address": ["The Net Loft", "4 Quay Street", "Saltmarsh Quay", "Essex CO0 0AA"],
+  "phone": "01632 960 412",
+  "email": "hello@harbourandhearth.example",
+  "openingHours": [
+    { "days": "Monday", "hours": "Closed (we're baking)" },
+    { "days": "Tuesday to Friday", "hours": "7.30am to 4pm" },
+    { "days": "Saturday", "hours": "8am to 5pm" },
+    { "days": "Sunday", "hours": "8am to 3pm" }
+  ],
+  "footerNote": "Harbour & Hearth is a fictional cafe made for a Polar demo."
+}

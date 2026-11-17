@@ -1,0 +1,89 @@
+---
+import { getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import OpeningHours from '../components/OpeningHours.astro';
+
+const page = (await getEntry('contact', 'contact'))!.data;
+const site = (await getEntry('site', 'site'))!.data;
+---
+<Base title={page.title} description={page.description}>
+  <section class="section">
+    <div class="container">
+      <h1>{page.heading}</h1>
+      <p class="lede">{page.intro}</p>
+    </div>
+  </section>
+
+  <div class="container contact">
+    <div class="contact__details">
+      <address>
+        {site.address.map((line) => <span>{line}<br /></span>)}
+      </address>
+      <p><a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a></p>
+      <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+      <h2 class="contact__hours-heading">{page.hoursHeading}</h2>
+      <OpeningHours />
+    </div>
+
+    <form class="card contact__form" data-demo-form>
+      <h2>{page.form.heading}</h2>
+      <label>
+        {page.form.nameLabel}
+        <input name="name" type="text" autocomplete="name" required />
+      </label>
+      <label>
+        {page.form.emailLabel}
+        <input name="email" type="email" autocomplete="email" required />
+      </label>
+      <label>
+        {page.form.messageLabel}
+        <textarea name="message" rows="5" required></textarea>
+      </label>
+      <button class="button" type="submit">{page.form.submitLabel}</button>
+      <p class="contact__success" role="status" hidden>{page.form.successMessage}</p>
+    </form>
+  </div>
+</Base>
+
+<script>
+  // Demo only: no form backend yet. Show the thank-you message instead of sending.
+  document.querySelectorAll<HTMLFormElement>('[data-demo-form]').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      form.querySelector<HTMLElement>('[role="status"]')!.hidden = false;
+      form.reset();
+    });
+  });
+</script>
+
+<style>
+  .contact {
+    display: grid;
+    gap: var(--space-12);
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    align-items: start;
+  }
+  address { font-style: normal; margin-bottom: var(--space-4); }
+  .contact__hours-heading { font-size: var(--text-xl); margin-top: var(--space-8); }
+  .contact__form { background: var(--color-surface); display: grid; gap: var(--space-4); }
+  label { display: grid; gap: var(--space-1); font-weight: var(--weight-medium); }
+  input,
+  textarea {
+    font: inherit;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--color-border);
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+  input:focus,
+  textarea:focus { border-color: var(--color-primary); outline: none; }
+  .contact__form .button { justify-self: start; }
+  .contact__success {
+    margin: 0;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-sm);
+    background: var(--color-accent);
+    color: var(--color-cream);
+  }
+</style>

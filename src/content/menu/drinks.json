@@ -1,0 +1,12 @@
+{
+  "title": "Drinks",
+  "order": 4,
+  "note": "Oat milk at no extra charge.",
+  "items": [
+    { "name": "Espresso", "description": "Tidewater house blend.", "price": 2.4 },
+    { "name": "Flat white", "description": "Short, strong and silky.", "price": 3.3 },
+    { "name": "Latte", "description": "Big and milky.", "price": 3.5 },
+    { "name": "Hot chocolate", "description": "Real chocolate, whipped cream optional.", "price": 3.6, "tags": ["v"] },
+    { "name": "Pot of tea", "description": "Breakfast, Earl Grey or fresh mint.", "price": 2.8, "tags": ["vg"] }
+  ]
+}

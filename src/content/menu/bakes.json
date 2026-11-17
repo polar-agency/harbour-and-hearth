@@ -1,0 +1,11 @@
+{
+  "title": "Bakes",
+  "order": 3,
+  "items": [
+    { "name": "Sea salt brownie", "description": "Dark, fudgy and slightly too big.", "price": 3.5, "tags": ["v"] },
+    { "name": "Cardamom bun", "description": "Twisted, buttery and sticky with sugar.", "price": 3.4, "tags": ["v"] },
+    { "name": "Lemon drizzle", "description": "A proper slice, sharp and sweet.", "price": 3.2, "tags": ["v"] },
+    { "name": "Almond and orange cake", "description": "Moist, nutty and gluten-free.", "price": 3.8, "tags": ["v", "gf"] },
+    { "name": "Sourdough loaf", "description": "To take home. Order ahead on Saturdays.", "price": 5.5, "tags": ["vg"] }
+  ]
+}

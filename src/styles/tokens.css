@@ -1,0 +1,71 @@
+/*
+ * Harbour & Hearth design tokens.
+ * PROTECTED FILE: the only place colours, fonts and spacing values may be defined.
+ * Everything else must use var(--token).
+ */
+
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/inter';
+
+:root {
+  /* Brand palette (from the brief) */
+  --color-cream: #F6EFE4;
+  --color-terracotta: #C4622D;
+  --color-brown: #3B2A20;
+  --color-sage: #8A9A5B;
+
+  /* Tints and shades, mixed from the palette only */
+  --color-terracotta-dark: color-mix(in srgb, var(--color-terracotta) 82%, var(--color-brown));
+  --color-cream-deep: color-mix(in srgb, var(--color-cream) 88%, var(--color-brown));
+  --color-brown-soft: color-mix(in srgb, var(--color-brown) 75%, var(--color-cream));
+
+  /* Roles */
+  --color-bg: var(--color-cream);
+  --color-surface: var(--color-cream-deep);
+  --color-text: var(--color-brown);
+  --color-text-muted: var(--color-brown-soft);
+  --color-primary: var(--color-terracotta);
+  --color-primary-hover: var(--color-terracotta-dark);
+  --color-on-primary: var(--color-cream);
+  --color-accent: var(--color-sage);
+  --color-border: var(--color-cream-deep);
+
+  /* Fonts */
+  --font-heading: 'Fraunces Variable', Georgia, serif;
+  --font-body: 'Inter Variable', system-ui, sans-serif;
+
+  /* Type scale */
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.625rem;
+  --text-2xl: 2.25rem;
+  --text-3xl: clamp(2.5rem, 6vw, 4rem);
+  --leading-tight: 1.15;
+  --leading-body: 1.6;
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-bold: 650;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  /* Shape */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.75rem;
+  --radius-pill: 999px;
+  --border-width: 1px;
+
+  /* Layout */
+  --content-width: 68rem;
+  --text-width: 42rem;
+}
