@@ -1,0 +1,8 @@
+{
+  "title": "Specials",
+  "order": 0,
+  "items": [
+    { "name": "Pumpkin loaf", "description": "A soft, warming slice of pumpkin loaf.", "price": 3.2 },
+    { "name": "Chai latte", "description": "Spiced chai with steamed milk.", "price": 3.6 }
+  ]
+}
