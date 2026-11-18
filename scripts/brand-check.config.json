@@ -1,0 +1,27 @@
+{
+  "site": "Harbour & Hearth",
+  "tokensFile": "src/styles/tokens.css",
+  "brandColours": "cream, terracotta, deep brown and sage",
+  "brandFonts": "Fraunces for headings, Inter for body text",
+  "scan": ["src"],
+  "protectedPaths": [
+    "src/styles/tokens.css",
+    "src/layouts/**",
+    "src/content.config.ts",
+    "astro.config.*",
+    ".github/**",
+    "scripts/**",
+    "vercel.json",
+    "package.json",
+    "package-lock.json"
+  ],
+  "pagesDir": "src/pages",
+  "newPageHint": "Ask Polar to add a page template for this.",
+  "requiredContent": [
+    {
+      "name": "Allergens note",
+      "pages": ["/menu"],
+      "contains": "aria-label=\"Allergen information\""
+    }
+  ]
+}
